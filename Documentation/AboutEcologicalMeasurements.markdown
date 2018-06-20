@@ -1,6 +1,3 @@
-#%RAML 1.0 DocumentationItem
-  title: About ecological measurements
-  content: |
       Ecological measurements are divers, and mostly not a goal, but a means. A means to produce a spreadsheet, display a map,
       analyse what happens to a species in time, analyse the quality of a body of water, required reporting to the government, etc.
       To be able to provide relevant information, the following is stored with a measurement:
@@ -21,3 +18,5 @@
       - a measurement object can be part of a hierarchy for assessment purposes (reporting point).
 
       Institutes and Standards are also new. It provides a mechanism to allow map entities to other standards. I.e. a chemical can have a Dutch code according to AQUO, but also contain a CAS-registry number.
+      Furthermore, Organisations are introduced in this specification: organisations van own specific measurements, measurement objects, monitoring networks, notes, methods, projects, etc.
+      Parameters, units, quantities, attributes are always public, and therefore, shared.

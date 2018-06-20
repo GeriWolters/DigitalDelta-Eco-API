@@ -1,6 +1,3 @@
-#%RAML 1.0 DocumentationItem
-  title: Error Handling
-  content: |
         Error handling:
 
         When errors are encountered, error information is provided as follows:

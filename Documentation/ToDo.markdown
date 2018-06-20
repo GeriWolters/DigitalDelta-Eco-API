@@ -1,6 +1,3 @@
-#%RAML 1.0 DocumentationItem
-  title: To Do
-  content: |
     The following topics will need to be discussed:
 
     * Authentication. Proposal: OpenID Connect/OAuth2.

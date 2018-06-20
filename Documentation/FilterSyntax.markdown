@@ -1,6 +1,3 @@
-#%RAML 1.0 DocumentationItem
-  title: Filter syntax
-  content: |
         Filtering can be performed by constructing a search filter using the following syntax:
 
         &lt;parametername&gt;:&lt;comparer&gt;:&lt;comparevalue&gt;[;&lt;parametername&gt;:&lt;comparer&gt;:&lt;comparevalue&gt;]<br/>

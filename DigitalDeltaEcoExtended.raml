@@ -5,14 +5,22 @@
   extends: DigitalDeltaEcoMinimal.raml
   mediaType: [ application/json ]
   documentation:
-    - !include Documentation/ChangeHistory.raml
-    - !include Documentation/Introduction.raml
-    - !include Documentation/AboutEcologicalMeasurements.raml
-    - !include Documentation/FilterSyntax.raml
-    - !include Documentation/ErrorHandling.raml
-    - !include Documentation/Minimal.raml
-    - !include Documentation/Extended.raml
-    - !include Documentation/ToDo.raml
+    - title: Change History
+      content: !include Documentation/ChangeHistory.markdown
+    - title: Introduction
+      content: !include Documentation/Introduction.markdown
+    - title: About Ecological Measurements
+      content: !include Documentation/AboutEcologicalMeasurements.markdown
+    - title: Filter Syntax
+      content: !include Documentation/FilterSyntax.markdown
+    - title: Error Handling
+      content: !include Documentation/ErrorHandling.markdown
+    - title: Minimal
+      content: !include Documentation/Minimal.markdown
+    - title: Extended
+      content: !include Documentation/Extended.markdown
+    - title: ToDo
+      content: !include Documentation/ToDo.markdown
 
   uses: # Minimal types and definitions
     Minimal: Libraries/Minimal.raml
