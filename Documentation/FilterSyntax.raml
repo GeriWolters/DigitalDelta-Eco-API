@@ -1,0 +1,62 @@
+#%RAML 1.0 DocumentationItem
+  title: Filter syntax
+  content: |
+        Filtering can be performed by constructing a search filter using the following syntax:
+
+        &lt;parametername&gt;:&lt;comparer&gt;:&lt;comparevalue&gt;[;&lt;parametername&gt;:&lt;comparer&gt;:&lt;comparevalue&gt;]<br/>
+
+        | Comparer | Description | Data types |
+        |----------|-------------|------|
+        | eq | equal | string, date, number |
+        | ne | unequal | string, date, number |
+        | lt | less than | date, number |
+        | le | less than or equal to | date, number |
+        | ge | greater than or equal to | date, number |
+        | gt | greater than | date, number |
+        | in | item is one of the values in the list | string, number |
+        | not | item is NOT one of the values in the list | string, number |
+        | like | String contains the value. | string |
+        | startswith | String starts with the value. | string |
+        | endswith | String ends with the value. | string |
+        | inbbox | Item is within the bounding box, defined by 4 numbers | bbox |
+        | inpolygon | Item is within the polygon, defined by list of numbers, where each x and y are a numbers in the array | bbox |
+        | notinbbox | Item is NOT within the bounding box, defined by 4 numbers | polygon |
+        | notinpolygon | Item is NOT within the polygon, defined by list of numbers, where each x and y are a numbers in the array | polygon |
+        | wkt | Item is within the Well-known-text definition | Wkt |
+        | all | all items in the list must be present in the queried item | string, number |
+
+        String compares are NOT case sensitive. Parameter names are NOT case sensitive.
+        Number formats are in US notation.
+        Date field notation is yyyy-MM-DD
+        Bbox type requires an array of 4 numeric values. The uneven-numbers represent an X-ordinate, the even-numbers represent an Y-ordinates. The uneven and the following even number represent a coordinate in WGS84.
+        Polygon type requires an array of numeric values. The number of items in the array need to be even. The uneven-numbers represent an X-ordinate, the even-numbers represent an Y-ordinates. The uneven and the following even number represent a coordinate in WGS84.
+
+        ** Examples **
+        location&colon;eq&colon;"NLKAD";parameter&colon;eq&colon;"Eukariota";organisation&colon;eq&colon;"RWS",measuredvalue&colon;gt&colon;1000;measuredunitSymbol&colon;eq&colon;"n"
+        location&colon;in&colon;["NKLAD","NKLBVA","NLKBRA"];parameter&colon;eq&colon;"Eukariota";organisation&colon;eq&colon;"RWS";measuredvalue&colon;gt&colon;1000,measuredunitSymbol&colon;eq&colon;"n"
+        location&colon;in&colon;["NKLAD","NKLBVA","NLKBRA"];parameter&colon;in&colon;["Eukariota [1]","Plantae"];measuredvalue&colon;gt&colon;1000;measuredunitSymbol&colon;eq&colon;"n"
+        locationArea&colon;inpolygon&colon;[1,2,3,4];parameterCode&colon;in&colon;["Eukariota [1]","Plantae"];measuredvalue&colon;gt&colon;1000;
+
+        String values have to be surrounded by double quotes.
+        Arrays are surrounded by square brackets.
+        Numbers use a period as a fractional separator. Commas are ignored.
+        Dates are formatted as yyyy-MM-dd
+
+        Example of a filter in a URL:
+        /organisations/?filter=organisation:eq:"RWS"
+
+        Sorting is the responsibility of the caller.
+        Filtering over expanded items is also the responsibility of the called service.
+
+        General URL syntax:
+        available parameters on the root level:
+        - filter
+        - page
+        - pagesize
+
+        When page is not speficied, the service will assume the first page is requested.
+        When pagesize is not specified, the service will assume provider-specific value.
+
+        To find out what filters are recognised by the service, the /filters segment can be used on the endpoints. The filters segment does not recognise any additional parameters.
+
+        Also see 'Error handling'
