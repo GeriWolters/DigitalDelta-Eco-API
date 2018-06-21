@@ -1,5 +1,4 @@
-    The following topics will need to be discussed:
+The following topics will need to be discussed:
 
-    * Authentication. Proposal: OpenID Connect/OAuth2.
-    * Authorization. Proposal: decided by the implementor.
-    * Define access. Proposal: specify open data, private data.
+* Authentication. Proposal: OpenID Connect/OAuth2.
+* Authorization. Proposal: decided by the provider, because not all data might be open or might be subscription-based.
