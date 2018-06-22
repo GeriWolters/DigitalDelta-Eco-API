@@ -1,42 +1,21 @@
 #%RAML 1.0 Extension
-  title: Digital Delta Eco Extensions - Extended
+  title: Digital Delta Eco Extensions - Discovery
   version: 0.9
-  usage: Digital Delta Eco complete interface. Extends compact.
-  extends: DigitalDeltaEcoMinimal.raml
+  usage: Digital Delta Eco discovery interface. Extends Measurement.
+  extends: DigitalDeltaEcoMeasurements.raml
   mediaType: [ application/json ]
   documentation:
-    - title: Change History
-      content: !include ChangeHistory.markdown
-    - title: Introduction
-      content: !include Documentation/Introduction.markdown
-    - title: Content
-      content: !include Documentation/Content.markdown
-    - title: About Ecological Measurements
-      content: !include Documentation/AboutEcologicalMeasurements.markdown
-    - title: Filter Syntax
-      content: !include Documentation/FilterSyntax.markdown
-    - title: Error Handling
-      content: !include Documentation/ErrorHandling.markdown
-    - title: Minimal
-      content: !include Documentation/Minimal.markdown
-    - title: Extended
-      content: !include Documentation/Extended.markdown
-    - title: ToDo
-      content: !include Documentation/ToDo.markdown
-    - title: Future
-      content: !include Documentation/Future.markdown
+    - title: Documentation
+      content: !include Documentation.markdown
 
   uses: # Minimal types and definitions
-    Minimal: Libraries/Minimal.raml
-    Extended: Libraries/Extended.raml
+    Minimal: Libraries/Measurements.raml
+    Extended: Libraries/Discovery.raml
 
   /eco:
     /compartments:
       description:
         Retrieves a list of compartments (AQUO).
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -54,9 +33,6 @@
       /expand:
         description:
           Retrieves an expanded list of monitoring networks (a collection of measurement objects) within the provider's system.
-          Filterable fields are &colon;
-          <li>code (string)</li>
-          <li>name (string)</li>
         get:
           is: [ Minimal.pageable, Minimal.filterable ]
           responses:
@@ -83,10 +59,6 @@
     /measurementobjects:
       description:
         Retrieves a list of measurement objects within the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
-        <li>organisation (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -104,10 +76,6 @@
       /geojson:
         description:
           Retrieves a list of measurement objects within the provider's system as a GeoJSON FeatureCollection.
-          Filterable fields are &colon;
-          <li>code (string)</li>
-          <li>name (string)</li>
-          <li>organisation (string)</li>
         get:
           is: [ Minimal.pageable, Minimal.filterable ]
           responses:
@@ -125,10 +93,6 @@
       /expand:
         description:
           Retrieves an expanded list of measurement objects within the provider's system.
-          Filterable fields are &colon;
-          <li>code (string)</li>
-          <li>name (string)</li>
-          <li>organisation (string)</li>
         get:
           is: [ Minimal.pageable, Minimal.filterable ]
           responses:
@@ -155,10 +119,6 @@
     /organisations:
       description:
         Retrieves a list of organisations within the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
-        <li>numericcode (number)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -176,10 +136,6 @@
       /expand:
         description:
           Retrieves an expanded list of organisations within the provider's system.
-          Filterable fields are &colon;
-          <li>code (string)</li>
-          <li>name (string)</li>
-          <li>numericcode (number)</li>
         get:
           is: [ Minimal.pageable, Minimal.filterable ]
           responses:
@@ -205,13 +161,6 @@
     /parameters:
       description:
         Retrieves a list of parameters available in the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
-        <li>type (string)</li>
-        <li>taxontype (string)</li>
-        <li>taxongroup (string)</li>
-        <li>changedate (datetime)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -229,12 +178,6 @@
       /expand:
         description:
           Retrieves an expanded list of parameters available in the provider's system.
-          Filterable fields are &colon;
-          <li>code (string)</li>
-          <li>name (string)</li>
-          <li>type (string)</li>
-          <li>taxontype (string)</li>
-          <li>taxongroup (string)</li>
         get:
           is: [ Minimal.pageable, Minimal.filterable ]
           responses:
@@ -261,9 +204,6 @@
     /quantities:
       description:
         Retrieves a list of quantities available in the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -281,9 +221,6 @@
       /expand:
         description:
           Retrieves an expanded list of quantities available in the provider's system.
-          Filterable fields are &colon;
-          <li>code (string)</li>
-          <li>name (string)</li>
         get:
           is: [ Minimal.pageable, Minimal.filterable ]
           responses:
@@ -310,9 +247,6 @@
     /units:
       description:
         Retrieves a list of units of masurement available in the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -339,9 +273,6 @@
     /measurementpackages:
       description:
         Retrieves a list of measurement packages.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -357,9 +288,6 @@
       /expand:
         description:
           Retrieves an expanded list of monitoring networks (a collection of measurement objects) within the provider's system.
-          Filterable fields are &colon;
-          <li>code (string)</li>
-          <li>name (string)</li>
         get:
           is: [ Minimal.pageable, Minimal.filterable ]
           responses:
@@ -385,9 +313,6 @@
     /exchangesystems:
       description:
         Retrieves a list of exchange systems available in the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -414,9 +339,6 @@
     /institutes:
       description:
         Retrieves a list of institutes within the provider's system. An institute defines or manages one or more standards.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -444,10 +366,6 @@
     /methods:
       description:
         Retrieves a list of methods used by the organisations in the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
-        <li>organisation (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -465,10 +383,6 @@
       /expand:
         description:
           Retrieves an expanded list of methods used by the organisations in the provider's system.
-          Filterable fields are &colon;
-          <li>code (string)</li>
-          <li>name (string)</li>
-          <li>organisation (string)</li>
         get:
           is: [ Minimal.pageable, Minimal.filterable ]
           responses:
@@ -495,10 +409,6 @@
     /monitoringnetworks:
       description:
         Retrieves a list of monitoring networks (a collection of measurement objects) within the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
-        <li>organisation (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -516,10 +426,6 @@
       /expand:
         description:
           The expanded items include a list of measurement objects that are part of the monitoring network.
-          Filterable fields are &colon;
-          <li>code (string)</li>
-          <li>name (string)</li>
-          <li>organisation (string)</li>
         get:
           is: [ Minimal.pageable, Minimal.filterable ]
           responses:
@@ -546,10 +452,6 @@
     /notes:
       description:
         Retrieves a standardised notes within organisations available in the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
-        <li>organisation (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -576,13 +478,6 @@
     /parameterpackages:
       description:
         Retrieves a list of parameter packages available in the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
-        <li>type (string)</li>
-        <li>taxontype (string)</li>
-        <li>taxongroup (string)</li>
-        <li>changedate (datetime)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -600,12 +495,6 @@
       /expand:
         description:
           Retrieves an expanded list of parameter packages available in the provider's system.
-          Filterable fields are &colon;
-          <li>code (string)</li>
-          <li>name (string)</li>
-          <li>type (string)</li>
-          <li>taxontype (string)</li>
-          <li>taxongroup (string)</li>
         get:
           is: [ Minimal.pageable, Minimal.filterable ]
           responses:
@@ -632,9 +521,6 @@
     /parametertypes:
       description:
         Retrieves a list of parameter types available in the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -685,10 +571,6 @@
     /taxongroups:
       description:
         Retrieves a list of taxon groups available in the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
-        <li>taxontype (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -715,9 +597,6 @@
     /taxontypes:
       description:
         Retrieves a list of taxon types available in the provider's system.
-        Filterable fields are &colon;
-        <li>code (string)</li>
-        <li>name (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -744,9 +623,6 @@
     /standards:
       description:
         Retrieves a list of standards within the provider's system.
-        Filterable fields are &colon;
-        <li>institute (string)</li>
-        <li>standardcode (string)</li>
       get:
         is: [ Minimal.pageable, Minimal.filterable ]
         responses:
@@ -766,5 +642,6 @@
           responses:
             200:
               body:
+                application/json:
                 type: Minimal.Filter[]
                 example: !include AquaDesk Examples/Filter.json

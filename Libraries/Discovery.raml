@@ -1,10 +1,11 @@
 #%RAML 1.0 Library
 # Types for the extended definition.
 uses:
-  Minimal: Minimal.raml
+  Minimal: Measurements.raml
 types:
 # Base items
   Compartment:
+    type: object
     description: Defines a compartment&colon; a part of the living environment.
     properties:
       code:
@@ -13,6 +14,7 @@ types:
         type: string
 
   Definition:
+    type: object
     description: Defines a standard and code for an entity.
     required: false
     properties:
@@ -28,6 +30,7 @@ types:
         required: false
 
   ExchangeSystem:
+    type: object
     description: Defines what system the measurement was intented for.
     properties:
       code:
@@ -36,6 +39,7 @@ types:
         type: string
 
   Institute:
+    type: object
     description: Defines a standardisation institute.
     properties:
       code:
@@ -52,6 +56,7 @@ types:
         required: false
 
   MeasurementAttribute:
+    type: object
     description: Defines an attribute (property) of a measurement.
     properties:
       code:
@@ -64,6 +69,7 @@ types:
         type: string
 
   MeasurementObject:
+    type: object
     description: Defines a measurement object (location).
     properties:
       code:
@@ -74,6 +80,7 @@ types:
         type: string
 
   Organisation:
+    type: object
     description: Defines a organisation&colon; the owner of data, methods, notes, locations or measurement networks.
     properties:
       code:
@@ -85,6 +92,7 @@ types:
         required: false
 
   OrganisationNote:
+    type: object
     description: Defines a note attached to a measurement.
     properties:
       code:
@@ -95,6 +103,7 @@ types:
         type: string
 
   Parameter:
+    type: object
     description: Defines a measured parameter.
     properties:
       code:
@@ -117,6 +126,7 @@ types:
         required: false
 
   ParameterGroup:
+    type: object
     description: Defines a parameter group&colon; a collection of parameters with similar properties.
     properties:
       code:
@@ -125,6 +135,7 @@ types:
         type: string
 
   ParameterPackage:
+    type: object
     description: Defines a parameter package&colon; a set of parameters that need to be measured. Used for planning.
     properties:
       code:
@@ -142,6 +153,7 @@ types:
         required: false
 
   ParameterType:
+    type: object
     description: Standardised type of a parameter, e.g. chemical, taxon.
     properties:
       code:
@@ -150,6 +162,7 @@ types:
         type: string
 
   Quantity:
+    type: object
     description: Defines a quantity in which a measurement can be expressed.
     properties:
       name:
@@ -160,6 +173,7 @@ types:
         type: string[]
 
   Unit:
+    type: object
     description: Defines a unit of measurement.
     properties:
       code:
@@ -171,6 +185,7 @@ types:
         required: false
 
   MeasurementPackage:
+    type: object
     description: Defines a measurement package.
     properties:
       code:
@@ -185,6 +200,7 @@ types:
         required: false
 
   MeasurementPurpose:
+    type: object
     description: Defines a measurement purpose.
     properties:
       code:
@@ -193,6 +209,7 @@ types:
         type: string
 
   Method:
+    type: object
     description: Defines a measurement method.
     properties:
       code:
@@ -210,6 +227,7 @@ types:
         type: string?
 
   MonitoringNetwork:
+    type: object
     description: Defines a collection of measurement objects.
     properties:
       code:
@@ -223,6 +241,7 @@ types:
         type: string
 
   Project:
+    type: object
     description: Defines a project for which a measurement was taken.
     properties:
       code:
@@ -237,6 +256,7 @@ types:
         type: date-only
 
   Purpose:
+    type: object
     description: Defines the purpose of a measurement.
     properties:
       code:
@@ -245,6 +265,7 @@ types:
         type: string
 
   Standard:
+    type: object
     description: Defines a standard for measurements, parameters, units, etc.
     properties:
       institute:
@@ -264,6 +285,7 @@ types:
         required: false
 
   TaxonGroup:
+    type: object
     description: Defines a taxonomic group.
     properties:
       code:
@@ -276,6 +298,7 @@ types:
         type: string
 
   TaxonType:
+    type: object
     description: Defines a taxonomic type.
     properties:
       code:

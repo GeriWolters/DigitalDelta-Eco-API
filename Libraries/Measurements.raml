@@ -7,6 +7,7 @@ types:
     format: double
 
   LinkBlock:
+    type: object
     description: Default block of links for navigation for all collection pages, except GeoJSON.
     properties:
       self:
@@ -31,6 +32,7 @@ types:
         required: false
 
   BaseListResponse:
+    type: object
     description: Base list response for all collection pages, except GeoJSON.
     properties:
       count:
@@ -41,7 +43,7 @@ types:
       links:
         type: LinkBlock
       maxPageSize:
-        description: Maximum page size, as allowed by the provider.
+        description: Maximum page size, as defined by the provider.
         type: integer
         required: false
       defaultPageSize:
@@ -49,9 +51,10 @@ types:
         description: Default page size that the provider uses, if not provided by the consumer.
       minPageSize:
         type: integer
-        description: Minimumt page siz, as allowed by the provider.
+        description: Minimum page size, as defined by the provider. Cannot be less than 1.
 
   Filter:
+    type: object
     description: Specifies a filter(part).
     properties:
       FieldName:
@@ -65,6 +68,7 @@ types:
         type: string
 
   Problem:
+    type: object
     description: Page problem (error, exception)
     properties:
       type:
@@ -96,6 +100,7 @@ types:
         required: false
 
   FilterError:
+    type: object
     description: Defines the field of an error in the filtering syntax.
     properties:
       ErrorType: string
@@ -106,6 +111,7 @@ types:
     type: string
 
   Geometry:
+    type: object
     description: A geometry in WKT. Digital Delta currently only supports the Point type.
     properties:
       type:
@@ -118,6 +124,7 @@ types:
         example: [ 4.234, 52.3423 ]
 
   Measurement:
+    type: object
     description: Defines a single measurement.
     properties:
       organisation:
@@ -250,4 +257,4 @@ traits:
       pagesize:
         type: integer
         required: false
-        description: Page size. minimal 1.
+        description: Page size. Minimum, maximum and default is defined by provider. Minimum can never be lower than 1.
