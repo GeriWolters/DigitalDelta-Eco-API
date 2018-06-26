@@ -223,6 +223,7 @@ The structure of this repository is as follows:
 
 # Change history (Specification)
 <a name="ChangeHistory"></a>
+
 | In Version | Change Date | Who | Description |
 | -------- | ----------- | --- | ----------- |
 | 0.9 | 20160621 | [Geri Wolters](mailto:geri.wolters@ecosys.nl) ([EcoSys](https://www.ecosys.nl)) | Initial release. |
